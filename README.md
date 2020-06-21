@@ -114,15 +114,20 @@ ssl]# openssl x509 -req -sha512 -days 3650 \
 
 ```
  ~]# vim /opt/harbor/harbor.yml
-  #set hostname
-  hostname = harbor.linux.io
-  #set ui_url_protocol
-  ui_url_protocol = https
-  ......
-  #The path of cert and key files for nginx, they are applied only the protocol is set to https
-  certificate: /opt/harbor/ssl/reg.linux.io.crt
-  private_key: /opt/harbor/ssl/reg.linux.io.key
-  harbor_admin_password = abc123
+ hostname: reg.linux.io
+
+ # http related config
+ http:
+   # port for http, default is 80. If https enabled, this port will redirect to https port
+   port: 80
+
+ # https related config
+ https:
+   # https port for harbor, default is 443
+   port: 443
+   # The path of cert and key files for nginx
+   certificate: /opt/harbor/ssl/reg.linux.io.crt
+   private_key: /opt/harbor/ssl/reg.linux.io.key
 ```
 
 - Run the `prepare` script to enable HTTPS
