@@ -156,8 +156,8 @@ ssl]# openssl x509 -inform PEM -in reg.linux.io.crt -out reg.linux.io.cert
 - Copy the server certificate, key and CA files into the Docker certificates folder on the Harbor host.
 
 ```
-ssl]# mkdir -pv  /etc/docker/certs.d/reg.linux .io/
-ssl]# cp regr.linux.io.cert  /etc/docker/certs.d/reg.linux.io/
+ssl]# mkdir -pv  /etc/docker/certs.d/reg.linux.io/
+ssl]# cp reg.linux.io.cert  /etc/docker/certs.d/reg.linux.io/
 ssl]# cp reg.linux.io.key  /etc/docker/certs.d/reg.linux.io/
 ssl]# cp ca.crt  /etc/docker/certs.d/reg.linux.io/
 ```
@@ -170,5 +170,5 @@ ssl]# cp ca.crt  /etc/docker/certs.d/reg.linux.io/
 
 ```
 ~]# docker tag ikubernetes/myapp:v1  reg.linux.io/library/myapp:v1
-~]# docker push eg.linux.io/library/myapp:v1
+~]# docker push reg.linux.io/library/myapp:v1
 ```
